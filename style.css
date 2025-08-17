@@ -1,0 +1,621 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+:root {
+  --pixel-size: 4px;
+  --primary: #ff6b6b;
+  --secondary: #4ecdc4;
+  --dark: #1a1a2e;
+  --light: #f8f9fa;
+  --console-green: #92f29c;
+}
+body {
+  margin: 0;
+  color: #e6e6e6;
+  background-color: #222034;
+  display: flex;
+  font-family: "Press Start 2P", system-ui;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 18px;
+  background-image: radial-gradient(#445 1px, transparent 1px),
+    radial-gradient(#445 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+h1 {
+  color: #edab50;
+  font-size: clamp(2rem, 5vw, 4rem);
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 5px 0 #dc7237, 0 15px 0 #8c241d;
+}
+
+h2 {
+  text-shadow: 0 2px 0 #dc7237, 0 6px 0 #8c241d;
+  color: #edab50;
+}
+
+.menu-section {
+  display: none;
+}
+.menu-section.active {
+  display: block;
+}
+
+.login-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration-box {
+  padding: 20px;
+  text-align: center;
+}
+
+.registration-box h2 {
+  margin: 0 0 16px 0;
+  padding: 0;
+}
+
+.registration-box input {
+  padding: 8px;
+  font-size: 16px;
+  width: 300px;
+  background-color: #e6e6e6;
+  color: #222;
+}
+
+.pokemons {
+  margin-top: 20px;
+  width: 800px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid #edab50;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: 100vh;
+  border-bottom: 1px solid #dc7237;
+}
+
+.settings-box {
+  margin: 0 auto;
+  width: 100vh;
+}
+
+.nav-menu-list {
+  list-style: none;
+}
+
+.nav-menu-list li {
+  display: inline;
+  margin-left: 20px;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+
+.nav-menu-list li:hover {
+  color: #dc7237;
+  cursor: pointer;
+}
+
+.game-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vh;
+  margin: 0 auto;
+}
+
+.flex-container {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}
+
+.game-monitor {
+  width: 100%;
+  border: 3px solid #e6e6e6;
+  padding: 40px;
+  box-sizing: border-box;
+  border: 8px solid #dc7237;
+  border-radius: 10px;
+  background-color: #222;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.2), inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.game-monitor::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+#attack-btn {
+  cursor: pointer;
+  background-color: #ff5555;
+  border: none;
+  width: 300px;
+  padding: 15px 30px;
+  font-family: "VT323", monospace;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: white;
+  box-shadow: 0 5px 0 #aa3333;
+  transition: transform 0.1s, box-shadow 0.1s;
+  outline: none;
+  position: relative;
+  border: 4px solid #000;
+}
+
+#attack-btn:hover {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 #aa3333;
+}
+
+#attack-btn:active {
+  transform: translateY(5px);
+  box-shadow: none;
+}
+
+.button-attack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.fighters {
+  display: flex;
+  justify-content: space-between;
+}
+
+.avatar-box {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.avatar-box img {
+  width: 200px;
+  height: 200px;
+}
+
+.player-image {
+  transform: scaleX(-1);
+}
+
+.avatar-enemy {
+  align-items: flex-end;
+}
+
+.console-log {
+  margin-top: 20px;
+  border: 3px solid #e6e6e6;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.console-log-box {
+  background-color: #212121;
+  width: 100%;
+  height: 100%;
+  color: #e6e6e6;
+}
+
+.console-log {
+  border: 8px solid #dc7237;
+  border-radius: 10px;
+  background-color: #101010;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.2), inset 0 0 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.console-log::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+.health-bar {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 200px;
+  height: 20px;
+  padding: 5px;
+  background: #ddd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.bar {
+  background: #ff5555;
+  width: 100%;
+  height: 10px;
+  position: relative;
+
+  transition: width 0.5s linear;
+}
+
+.hit {
+  background: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 0px;
+
+  transition: width 0.5s linear;
+}
+
+.fight-box {
+  width: 500px;
+}
+.fight-box h2 {
+  font-size: 16px;
+  line-height: 32px;
+  color: #e6e6e6;
+  text-shadow: none;
+}
+
+.text-box {
+  border: 2px solid #dc7237;
+  border-radius: 5px;
+  padding: 2.5px 5px;
+  background-color: #dc7237;
+  color: #222;
+}
+
+.zones {
+  display: flex;
+  justify-content: space-between;
+}
+
+.zone-2 {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.zone-1 {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.uiverse-pixel-radio-group {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5em;
+  font-family: "Courier New", monospace;
+}
+.uiverse-pixel-radio-group h3 {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0 6px;
+  border: none;
+  inline-size: auto;
+  box-sizing: border-box;
+}
+
+label {
+  margin-top: 16px;
+  box-sizing: border-box;
+}
+
+.uiverse-pixel-radio {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px #000;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.uiverse-pixel-radio input[type="radio"],
+.uiverse-pixel-radio input[type="checkbox"] {
+  appearance: none;
+  width: 1.5em;
+  height: 1.5em;
+  background: #ff6b35;
+  border: none;
+  box-shadow: 0 0 0 0.15em #000, 0 0 0 0.3em #fff, 0 0 0 0.45em #000;
+  image-rendering: pixelated;
+  margin: 0;
+  transition: all 0.1s steps(1);
+  position: relative;
+}
+
+.uiverse-pixel-radio input[type="radio"]::before,
+.uiverse-pixel-radio input[type="checkbox"]::before {
+  content: "";
+  display: block;
+  width: 0.75em;
+  height: 0.75em;
+  background: #fff;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.1s ease-out;
+  box-shadow: 0 0 0 1px #000;
+}
+
+.uiverse-pixel-radio input[type="radio"]:checked::before,
+.uiverse-pixel-radio input[type="checkbox"]:checked::before {
+  transform: translate(-50%, -50%) scale(1);
+  background: #000;
+}
+
+.uiverse-pixel-radio input[type="radio"]:hover,
+.uiverse-pixel-radio input[type="checkbox"]:hover {
+  background: #ff8c42;
+}
+
+.uiverse-pixel-radio input[type="radio"]:active,
+.uiverse-pixel-radio input[type="checkbox"]:active {
+  background: #e55a2b;
+  transform: translateY(0.125em);
+}
+
+.uiverse-pixel-radio input[type="radio"]:focus-visible,
+.uiverse-pixel-radio input[type="checkbox"]:focus-visible {
+  outline: 2px dashed #fff;
+  outline-offset: 0.2em;
+}
+
+.profile-container {
+  max-width: 100vh;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 24px;
+  letter-spacing: 1px;
+  color: var(--console-green);
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6);
+  margin-bottom: 10px;
+  animation: flicker 4s infinite alternate;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.card {
+  background-color: var(--dark);
+  border: var(--pixel-size) solid #edab50;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      rgba(26, 26, 46, 0.1),
+      rgba(26, 26, 46, 0.1)
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent var(--pixel-size),
+      rgba(255, 255, 255, 0.05) var(--pixel-size),
+      rgba(255, 255, 255, 0.05) calc(var(--pixel-size) * 2)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent var(--pixel-size),
+      rgba(255, 255, 255, 0.05) var(--pixel-size),
+      rgba(255, 255, 255, 0.05) calc(var(--pixel-size) * 2)
+    );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.card-inner {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.pixel-art {
+  width: 80%;
+  height: auto;
+  margin: auto;
+  image-rendering: pixelated;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+  filter: brightness(0);
+  transition: 0.5s ease;
+}
+
+.card:hover .pixel-art {
+  animation: bounce 0.5s infinite alternate;
+  filter: brightness(1);
+}
+
+.avatar-player {
+  filter: brightness(1);
+}
+
+.player-content {
+  font-size: 16px;
+}
+
+.player-content h3 {
+  text-align: center;
+}
+
+.card:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  border: var(--pixel-size) solid #ff6b6b;
+}
+
+.card:hover {
+  animation: fillBar 0.8s forwards;
+}
+
+/* Grid View */
+
+.card-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: var(--primary);
+  color: var(--dark);
+  font-size: 10px;
+  padding: 3px 6px;
+  z-index: 4;
+}
+
+.main-character .card .card-badge {
+  font-size: 16px;
+}
+
+.main-character {
+  width: 400px;
+  height: auto;
+}
+
+button {
+  background-color: #ff6b6b;
+  border: none;
+  padding: 8px 16px;
+  font-size: 16px;
+  color: #e6e6e6;
+  cursor: pointer;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  font-size: 22px;
+}
+
+button:hover {
+  background-color: #f8b700;
+  border-color: #f8b700;
+}
+
+#registration {
+  display: flex;
+  width: 100vh;
+  height: 100vh;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registration-box button {
+  background-color: #ff6b6b;
+  padding: 8px 16px;
+  font-size: 16px;
+  color: #e6e6e6;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+}
+
+.registration-box button:hover {
+  background-color: #edab50;
+  border-color: #edab50;
+}
+
+.registration-box button:active {
+  background-color: #222;
+  color: #ff6b6b;
+}
+
+.name-container {
+  display: flex;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.center {
+  justify-content: center;
+}
+
+.input-box {
+  width: 600px;
+  padding: 10px;
+  background-color: #222034;
+  border: 3px solid #ff6b6b;
+  color: #f4f4f4;
+  font-family: "Press Start 2P", system-ui;
+  font-size: 16px;
+  transition: all 0.3s;
+  outline: none;
+}
+
+.input-box:focus {
+  border-color: #f8b700;
+  box-shadow: 0 0 8px #f8b700;
+}

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Fight Club</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Registration -->
+    <div id="registration" class="login-box">
+      <h1>Pokemon Fight Club</h1>
+      <div class="registration-box">
+        <h2><label for="nickname-input">Enter your nickname</label></h2>
+        <div class="name-container center">
+          <input
+            class="input-box"
+            type="text"
+            id="nickname-input"
+            placeholder="Your nickname"
+          />
+          <button class="registration-button">Join</button>
+        </div>
+        <div class="animation">
+          <img
+            class="pokemons"
+            src="gengar-hex-maniac.gif"
+            alt="aniamtion of pokemons"
+          />
+        </div>
+      </div>
+    </div>
+    <nav class="nav-menu" style="display: none">
+      <h3 class="nav-text">Main</h3>
+      <ul class="nav-menu-list">
+        <li>Main</li>
+        <li>Profile</li>
+        <li>Settings</li>
+      </ul>
+    </nav>
+    <h1 class="title-game" style="display: none">Pokemon Fight Club</h1>
+    <div class="game-box">
+      <div class="game-monitor" style="display: none">
+        <div class="fighters">
+          <div class="player">
+            <div class="avatar-box">
+              <span id="enemy-name">Player</span>
+              <div class="health-bar" data-total="1000" data-value="1000">
+                <div class="bar">
+                  <div class="hit"></div>
+                </div>
+              </div>
+              <span id="enemy-health">100</span>
+              <img
+                class="player-image"
+                src="player/player1.webp"
+                alt="player"
+              />
+            </div>
+          </div>
+          <div class="fight-box">
+            <h2>
+              Please pick <span class="text-box">1 ATTACK</span> zone and
+              <span class="text-box">2 DEFENSE</span> zone
+            </h2>
+            <div class="zones">
+              <div class="uiverse-pixel-radio-group zone-1">
+                <h3 class="text-box">ATTACK</h3>
+                <fieldset>
+                  <label class="uiverse-pixel-radio"
+                    ><input
+                      type="radio"
+                      name="attack"
+                      value="head"
+                      required
+                    />Head</label
+                  >
+                  <label class="uiverse-pixel-radio"
+                    ><input
+                      type="radio"
+                      name="attack"
+                      value="head"
+                    />Neck</label
+                  >
+                  <label class="uiverse-pixel-radio"
+                    ><input
+                      type="radio"
+                      name="attack"
+                      value="head"
+                    />Body</label
+                  >
+                  <label class="uiverse-pixel-radio"
+                    ><input
+                      type="radio"
+                      name="attack"
+                      value="head"
+                    />Belly</label
+                  >
+                  <label class="uiverse-pixel-radio"
+                    ><input
+                      type="radio"
+                      name="attack"
+                      value="head"
+                    />Legs</label
+                  >
+                </fieldset>
+              </div>
+              <div class="uiverse-pixel-radio-group zone-2">
+                <h3 class="text-box">DEFENSE</h3>
+                <fieldset>
+                  <label class="uiverse-pixel-radio"
+                    ><input
+                      type="checkbox"
+                      name="attack"
+                      value="head"
+                    />Head</label
+                  >
+                  <label class="uiverse-pixel-radio"
+                    ><input
+                      type="checkbox"
+                      name="attack"
+                      value="head"
+                    />Neck</label
+                  >
+                  <label class="uiverse-pixel-radio"
+                    ><input
+                      type="checkbox"
+                      name="attack"
+                      value="head"
+                    />Body</label
+                  >
+                  <label class="uiverse-pixel-radio"
+                    ><input
+                      type="checkbox"
+                      name="attack"
+                      value="head"
+                    />Belly</label
+                  >
+                  <label class="uiverse-pixel-radio"
+                    ><input
+                      type="checkbox"
+                      name="attack"
+                      value="head"
+                    />Legs</label
+                  >
+                </fieldset>
+              </div>
+            </div>
+            <div class="button-attack">
+              <button id="attack-btn" disabled>Attack!</button>
+            </div>
+          </div>
+          <div class="enemy">
+            <div class="avatar-box avatar-enemy">
+              <span id="enemy-name">SQUIRTLE</span>
+              <div class="health-bar" data-total="1000" data-value="1000">
+                <div class="bar">
+                  <div class="hit"></div>
+                </div>
+              </div>
+              <span id="enemy-health">100</span>
+              <img src="enemy/enemy3  .webp" alt="enemy1" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="console-log" style="display: none">
+        <h2>Progress of the battle</h2>
+        <div class="console-log-box">
+          <ul id="battle-log">
+            <li>
+              <span class="text-box">Player</span> attacked
+              <span class="text-box">SQUIRTEL</span> to Neck and deal 10 damage.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-container" style="display: none">
+      <div class="flex-container">
+        <div class="main-character">
+          <div class="card">
+            <div class="card-badge">Player</div>
+            <div class="card-inner">
+              <img
+                src="player/player1-anim.webp"
+                data-anim="player/player1-anim.webp"
+                class="pixel-art avatar-player"
+                alt="Player1"
+              />
+            </div>
+          </div>
+          <div class="player-content">
+            <h3>Player</h3>
+            <p>Wins: <span id="wins">0</span></p>
+            <p>Loses: <span id="loses">0</span></p>
+          </div>
+        </div>
+        <div class="cards-container grid-view">
+          <!-- Card 1 -->
+          <div class="card">
+            <div class="card-badge">Bulbasaur</div>
+            <div class="card-inner">
+              <img
+                src="player/player1-static.webp"
+                data-anim="player/player1-anim.webp"
+                class="pixel-art"
+                alt="Bulbasaur"
+              />
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card">
+            <div class="card-badge">Sylveon</div>
+            <div class="card-inner">
+              <img
+                src="player/player2-static.webp"
+                data-anim="player/player2-anim.webp"
+                class="pixel-art"
+                alt="Sylveon"
+              />
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card">
+            <div class="card-badge">Charmander</div>
+            <div class="card-inner">
+              <img
+                src="player/player3-static.webp"
+                data-anim="player/player3-anim.webp"
+                class="pixel-art"
+                alt="Charmander"
+              />
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card">
+            <div class="card-badge">Spheal</div>
+            <div class="card-inner">
+              <img
+                src="player/player4-static.webp"
+                data-anim="player/player4-anim.webp"
+                class="pixel-art"
+                alt="Spheal"
+              />
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="card">
+            <div class="card-badge">Tychq</div>
+            <div class="card-inner">
+              <img
+                src="player/player5-static.webp"
+                data-anim="player/player5-anim.webp"
+                class="pixel-art"
+                alt="Tychq"
+              />
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="card">
+            <div class="card-badge">HERO</div>
+            <div class="card-inner">
+              <img
+                src="player/player6-static.webp"
+                data-anim="player/player6-anim.webp"
+                class="pixel-art"
+                alt="Ryu character"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-box" style="display: none">
+      <h3>Change your name: <span>Player</span></h3>
+      <div class="name-container">
+        <input type="text" class="input-box" />
+        <button>Edit</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      document.querySelectorAll(".card").forEach((card) => {
+        const img = card.querySelector("img");
+        const staticSrc = img.src;
+        const animSrc = img.dataset.anim;
+
+        card.addEventListener("mouseenter", () => {
+          img.src = animSrc;
+        });
+
+        card.addEventListener("mouseleave", () => {
+          img.src = staticSrc;
+        });
+      });
+    </script>
+  </body>
+</html>
