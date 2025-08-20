@@ -36,19 +36,11 @@ h2 {
   color: #edab50;
 }
 
-.menu-section {
-  display: none;
-}
-.menu-section.active {
-  display: block;
-}
-
 .login-box {
-  width: 100%;
-  height: 100%;
+  width: 100vh;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
 
 .registration-box {
@@ -85,6 +77,7 @@ h2 {
   margin: 0 auto;
   width: 100vh;
   border-bottom: 1px solid #dc7237;
+  margin-bottom: 30px;
 }
 
 .settings-box {
@@ -123,7 +116,7 @@ h2 {
 }
 
 .game-monitor {
-  width: 100%;
+  width: 100vh;
   border: 3px solid #e6e6e6;
   padding: 40px;
   box-sizing: border-box;
@@ -199,10 +192,6 @@ h2 {
 .avatar-box img {
   width: 200px;
   height: 200px;
-}
-
-.player-image {
-  transform: scaleX(-1);
 }
 
 .avatar-enemy {
@@ -618,4 +607,11 @@ button:hover {
 .input-box:focus {
   border-color: #f8b700;
   box-shadow: 0 0 8px #f8b700;
+}
+
+.menu-section {
+  display: none;
+}
+.menu-section.active {
+  display: block;
 }
