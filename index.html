@@ -60,7 +60,7 @@
                     <div class="hit"></div>
                   </div>
                 </div>
-                <span id="enemy-health">100</span>
+                <span id="player-health">100</span>
                 <img
                   class="player-image"
                   src="player/player1-anim.webp"
@@ -89,28 +89,28 @@
                       ><input
                         type="radio"
                         name="attack"
-                        value="head"
+                        value="neck"
                       />Neck</label
                     >
                     <label class="uiverse-pixel-radio"
                       ><input
                         type="radio"
                         name="attack"
-                        value="head"
+                        value="body"
                       />Body</label
                     >
                     <label class="uiverse-pixel-radio"
                       ><input
                         type="radio"
                         name="attack"
-                        value="head"
+                        value="belly"
                       />Belly</label
                     >
                     <label class="uiverse-pixel-radio"
                       ><input
                         type="radio"
                         name="attack"
-                        value="head"
+                        value="legs"
                       />Legs</label
                     >
                   </fieldset>
@@ -121,36 +121,36 @@
                     <label class="uiverse-pixel-radio"
                       ><input
                         type="checkbox"
-                        name="attack"
+                        name="defense"
                         value="head"
                       />Head</label
                     >
                     <label class="uiverse-pixel-radio"
                       ><input
                         type="checkbox"
-                        name="attack"
-                        value="head"
+                        name="defense"
+                        value="neck"
                       />Neck</label
                     >
                     <label class="uiverse-pixel-radio"
                       ><input
                         type="checkbox"
-                        name="attack"
-                        value="head"
+                        name="defense"
+                        value="body"
                       />Body</label
                     >
                     <label class="uiverse-pixel-radio"
                       ><input
                         type="checkbox"
-                        name="attack"
-                        value="head"
+                        name="defense"
+                        value="belly"
                       />Belly</label
                     >
                     <label class="uiverse-pixel-radio"
                       ><input
                         type="checkbox"
-                        name="attack"
-                        value="head"
+                        name="defense"
+                        value="legs"
                       />Legs</label
                     >
                   </fieldset>
@@ -169,7 +169,7 @@
                   </div>
                 </div>
                 <span id="enemy-health">100</span>
-                <img src="enemy/enemy3.webp" alt="enemy1" />
+                <img src="enemy/enemy3.webp" alt="enemy3" />
               </div>
             </div>
           </div>
@@ -177,13 +177,7 @@
         <div class="console-log">
           <h2>Progress of the battle</h2>
           <div class="console-log-box">
-            <ul id="battle-log">
-              <li>
-                <span id="player-name" class="text-box">Player</span> attacked
-                <span class="text-box">SQUIRTEL</span> to Neck and deal 10
-                damage.
-              </li>
-            </ul>
+            <ul id="battle-log"></ul>
           </div>
         </div>
       </section>
@@ -192,7 +186,7 @@
       <div class="profile-container">
         <div class="flex-container">
           <div class="main-character">
-            <div class="card">
+            <div class="card" data-exclude="true">
               <div class="card-badge player-badge">Bulbasaur</div>
               <div class="card-inner">
                 <img
