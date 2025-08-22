@@ -21,7 +21,7 @@ const sections = document.querySelectorAll("section:not(#menu-section)");
 
 const monsters = [
   {
-    name: "Enemy1",
+    name: "Zekrom",
     attackPoints: 2,
     defensePoints: 1,
     zones: ["head", "neck", "body", "belly", "legs"],
@@ -29,7 +29,7 @@ const monsters = [
     health: 100,
   },
   {
-    name: "Enemy2",
+    name: "Zygarde",
     attackPoints: 1,
     defensePoints: 2,
     zones: ["head", "neck", "body", "belly", "legs"],
@@ -37,12 +37,12 @@ const monsters = [
     health: 100,
   },
   {
-    name: "Enemy3",
+    name: "Giratina",
     attackPoints: 2,
     defensePoints: 2,
     zones: ["head", "neck", "body", "belly", "legs"],
     img: "enemy/enemy3.webp",
-    health: 80,
+    health: 50,
   },
 ];
 
@@ -71,6 +71,10 @@ if (savedNickname) {
   });
 
   showMainScreen();
+}
+
+function getCurrentNickname() {
+  return nicknameInput.value || "Player"; // если пусто, Player
 }
 
 function logMessage(message) {
@@ -158,11 +162,15 @@ attackBtn.addEventListener("click", () => {
     if (!playerDefense.includes(zone)) {
       playerHealth -= 10;
       logMessage(
-        `<span class="text-box-enemy">${monster.name}</span> attacked <span class="text-box">${savedNickname}</span> to ${zone} → <span class="text-box">${savedNickname}</span> received 10 damage!`
+        `<span class="text-box-enemy">${
+          monster.name
+        }</span> attacked <span class="text-box-player">${getCurrentNickname()}</span> to ${zone} → <span class="text-box-player">${getCurrentNickname()}</span> received 10 damage!`
       );
     } else {
       logMessage(
-        `<span class="text-box-enemy">${monster.name}</span> attacked <span class="text-box">${savedNickname}</span> to ${zone} → <span class="text-box">${savedNickname}</span> was able to protect his ${zone}!`
+        `<span class="text-box-enemy">${
+          monster.name
+        }</span> attacked <span class="text-box-player">${getCurrentNickname()}</span> to ${zone} → <span class="text-box-player">${getCurrentNickname()}</span> was able to protect his ${zone}!`
       );
     }
   });
@@ -172,11 +180,17 @@ attackBtn.addEventListener("click", () => {
     if (!monsterDefense.includes(zone)) {
       monsterHealth -= 10;
       logMessage(
-        `<span class="text-box">${savedNickname}</span> attacked to ${zone} → <span class="text-box-enemy">${monster.name}</span> received 10 damage!`
+        `<span class="text-box-player">${getCurrentNickname()}</span> attacked to ${zone} → <span class="text-box-enemy">${
+          monster.name
+        }</span> received 10 damage!`
       );
     } else {
       logMessage(
-        `<span class="text-box">${savedNickname}</span> attacked to ${zone} → <span class="text-box-enemy">${monster.name}</span> was able to protect his ${zone}!`
+        `<span class="text-box-player">${getCurrentNickname()}</span> attacked <span class="text-box-enemy">${
+          monster.name
+        }</span> to ${zone} → <span class="text-box-enemy">${
+          monster.name
+        }</span> was able to protect his ${zone}!`
       );
     }
   });
@@ -192,7 +206,7 @@ attackBtn.addEventListener("click", () => {
     } else if (playerHealth <= 0) {
       battleLog.innerHTML += `<li>${monster.name} won!</li>`;
     } else {
-      battleLog.innerHTML += `<li>${savedNickname} won!</li>`;
+      battleLog.innerHTML += `<li>${getCurrentNickname()} won!</li>`;
     }
     attackBtn.disabled = true;
   }

@@ -313,14 +313,22 @@ h2 {
   color: #222;
 }
 
+.text-box-player {
+  border: 2px solid #37dc37;
+  border-radius: 5px;
+  padding: 2.5px 5px;
+  background-color: #37dc37;
+  color: #222;
+}
+
 .zones {
   display: flex;
   justify-content: space-between;
 }
 
 #battle-log {
-  height: 200px; /* фиксированная высота */
-  overflow-y: auto; /* вертикальный скролл */
+  height: 200px;
+  overflow-y: auto;
   font-family: monospace;
   padding: 10px;
   border-radius: 8px;
